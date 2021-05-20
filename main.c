@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+
+
 
 //int main() {
 //    printf("Hello, World!\n");
@@ -55,7 +58,88 @@
 //    printf("%d", b);
 //}
 
+//int main() {
+//    // password
+//    char password[10] = "hello"; // 設定密碼為: hello
+//    char input[10];
+//    scanf("%s", input);
+//    if (strcmp(password, input) == 0){              // 密碼正確
+//        printf("Password is correct");
+//    }else{                                          // 密碼錯誤
+//        printf("Wrong password");
+//    }
+//}
+
+//int main() {
+////    // password 輸入三次
+//    int i;
+//    for (i = 0; i < 3; i++) { // for 固定寫法
+//        char password[10] = "hello"; // 設定密碼為: hello
+//        char input[10];
+//        scanf("%s", input);
+//        if (strcmp(password, input) == 0) {              // 密碼正確
+//            printf("Password is correct");
+//        } else {                                          // 密碼錯誤
+//            printf("Wrong password");
+//        }
+//    }
+//
+//}
+
+// HW7
 int main() {
-    
+
+    int i;
+    // 計算A玩家分數
+    double A_point = 0.0;
+    for (i = 0; i < 3; i++) {
+        char card[10];
+        scanf("%s", card);
+        if (strcmp(card, "A") == 0) {
+            A_point += 1;
+        } else if (strcmp(card, "J") == 0 || strcmp(card, "Q") == 0 || strcmp(card, "K") == 0) {
+            A_point += 0.5;
+        } else {
+//        A_point += card;
+            A_point += atof(card);
+        }
+    }
+    // 計算B玩家分數
+    double B_point = 0.0;
+    for (i = 0; i < 3; i++) {
+        char card[10];
+        scanf("%s", card);
+        if (strcmp(card, "A") == 0) {
+            B_point += 1;
+        } else if (strcmp(card, "J") == 0 || strcmp(card, "Q") == 0 || strcmp(card, "K") == 0) {
+            B_point += 0.5;
+        } else {
+//        A_point += card;
+            B_point += atof(card);
+        }
+    }
+
+    if (A_point > 10.5) {
+        A_point = 0.0;
+    }
+    if (B_point > 10.5) {
+        B_point = 0.0;
+    }
+    printf("%.1f\n", A_point);
+    printf("%.1f\n", B_point);
+
+    if (A_point > B_point) {
+        printf("A Win.\n");
+    } else if (A_point < B_point) {
+        printf("B Win.\n");
+    } else {
+        printf("Tie.\n");
+    }
+
+
 }
+
+
+
+
 
